@@ -10,3 +10,11 @@ A reconstruction version of [simple-virtual-dom](https://github.com/livoras/simp
     - remove redundancy codes.
     - more readable.
 - Add test of 'Root reordering and replacing'.
+- The size of dist file has been compressed by 38%.
+
+## Usage
+Please visit [doc](https://github.com/livoras/simple-virtual-dom#simple-virtual-dom)
+
+## License
+MIT
+

@@ -1,8 +1,8 @@
 import Element,{el} from './element';
 import Patches from './patch';
-import diff from './diff';
+import {diff} from './diff';
 
-export {
+window.vdom = {
     el,
     Element,
     Patches,

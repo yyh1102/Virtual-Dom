@@ -20,8 +20,7 @@ export function reorderChildren(node,moves){
     let child,index;
     let cache={};
 
-    childList.forEach((_,i)=>{
-        child=node.childNodes[i];
+    childList.forEach((child)=>{
         if(child.nodeType===1){
             let key=child.getAttribute('key');
             if(key) cache[key]=child;
@@ -30,7 +29,7 @@ export function reorderChildren(node,moves){
 
     moves.forEach((move)=>{
         index=move.index;
-        child=node.childNodes[index];
+        child=childList[index];
         if(move.type===0){  //remove item
             node.removeChild(child);
             childList.splice(index,1);

@@ -1,11 +1,29 @@
 var webpack=require("webpack");
+var path=require("path");
 var pack=require("../package.json");
-var webpackDevConfig=require("./webpack.dev.config");
-var merge=require("webpack-merge");
 
-module.exports=merge.smart({},webpackDevConfig,{
+module.exports={
     entry: {
         virtualDom:'./src/index'
+    },
+    output:{
+        libraryTarget:'umd',
+        library:'[name]',
+        path:path.resolve(__dirname,'..','dist'),
+        publicPath:'/dist/',
+        filename:'[name].js',
+    },
+    module:{
+        rules:[
+            {
+                test:/\.js[x]?$/,
+                use:'babel-loader',
+                exclude:/node_modules/
+            }
+        ]
+    },
+    resolve:{
+        extensions:['.js']
     },
     plugins:[
         new webpack.optimize.UglifyJsPlugin({
@@ -29,4 +47,4 @@ module.exports=merge.smart({},webpackDevConfig,{
             + ' */'
         })
     ]
-});
+};

@@ -1,18 +1,16 @@
 {
   "name": "virtual-dom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple virtual dom solution",
   "main": "src/index.js",
   "scripts": {
     "karma": "karma start config/karma.conf.js",
     "test": "karma start config/karma.conf.js --single-run",
-    "start": "webpack-dev-server --config config/webpack.dev.js",
-    "build": "webpack --config config/webpack.prod.config.js",
+    "build": "webpack --config config/webpack.config.js",
     "coverage": "cat ./coverage/lcov.info | coveralls"
   },
   "keywords": [
-    "virtual-dom",
-    "list-diff"
+    "virtual-dom"
   ],
   "author": "LowesYang",
   "license": "MIT",

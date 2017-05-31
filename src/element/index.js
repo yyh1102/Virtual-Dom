@@ -2,10 +2,10 @@ import {toArray} from '../utils';
 
 /**
  * Virtual-dom Element by js-object
- * @param {String} tagName
+ * @param {String} tagName - default 'div'
  * @param {Object} props - Properties of elements
  *                        - key-value object
- * @param {Array<String>|ArrayLike<String>} children - children of elements
+ * @param {Array<Element|String>|ArrayLike<Element|String>} children - children of elements
  */
 class Element{
     constructor(tagName='div',props={},children=[]){

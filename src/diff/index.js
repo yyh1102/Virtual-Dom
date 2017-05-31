@@ -2,7 +2,6 @@ import Patches from '../patch';
 import {isString} from '../utils';
 import listDiff from 'list-diff2';
 
-
 /**
  * diff two virtual-dom tree
  * @param {Element} oldTree
@@ -50,9 +49,8 @@ class Diff{
                 node:newNode
             })
         }
-        if(currPatches.length) {
-            this.patches.addPatch(currIndex, currPatches);
-        }
+        currPatches.length &&
+        this.patches.addPatch(currIndex, currPatches);
     }
 
     diffProps(oldNode,newNode,currPatches){
