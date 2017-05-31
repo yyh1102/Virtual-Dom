@@ -14,8 +14,6 @@ A reconstruction version of [simple-virtual-dom](https://github.com/livoras/simp
 - The size of dist file has been compressed by 38%.
 
 ## Install
-I prefer you to use [simple-virtual-dom](https://github.com/livoras/simple-virtual-dom).
-
 npm:
 ```bash
 $ npm install virtual-doml --save-dev
@@ -24,6 +22,7 @@ or script:
 ```html
 <script src='/dist/virtualDom.js'></script>
 ```
+or you can use reference project [simple-virtual-dom](https://github.com/livoras/simple-virtual-dom).
 
 ## Usage
 ```javascript
