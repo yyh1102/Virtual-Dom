@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<div id="demo"></div>
+<script src="../dist/virtualDom.js"></script>
+<script>
+    var el=vdom.el;
+    var diff=vdom.diff;
+
+    var tree=el('div',{'id':'container'},[
+        el('p',{name:'lowesyang'},['Hello vdom']),
+        el('ul',[el('li',['item1']),el('li',['item2'])])
+    ])
+
+    var newTree=el('div',{'id':'container'},[
+        el('h1',{style:'color:red'},['Hello LowesYang']),
+        el('p',{name:'lowesyang'},['Hello vdom']),
+        el('ul',[el('li',['item2'])])
+    ])
+
+    var patches=diff(tree,newTree);
+    var root=tree.render();
+    document.querySelector('#demo').appendChild(root);
+    setTimeout(()=>{
+        patches.apply(root);
+    },2000)
+
+</script>
+</body>
+</html>

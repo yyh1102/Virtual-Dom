@@ -9,11 +9,46 @@ A reconstruction version of [simple-virtual-dom](https://github.com/livoras/simp
 - Use ES6&ES7 to reconstruct the code.
     - remove redundancy codes.
     - more readable.
-- Add test of 'Root reordering and replacing'.
+- Add test of 'Root reordering and child replacing'.
+- Add test of 'Root reordering,and children adding and removing'.
 - The size of dist file has been compressed by 38%.
 
+## Install
+I prefer you to use [simple-virtual-dom](https://github.com/livoras/simple-virtual-dom).
+
+npm:
+```bash
+$ npm install virtual-doml --save-dev
+```
+or script:
+```html
+<script src='/dist/virtualDom.js'></script>
+```
+
 ## Usage
-Please visit [doc](https://github.com/livoras/simple-virtual-dom#simple-virtual-dom)
+```javascript
+var vdom=require('virtual-doml');
+var el=vdom.el;
+var diff=vdom.diff;
+
+var tree=el('div',{'id':'container'},[
+    el('p',{name:'lowesyang'},['Hello vdom']),
+    el('ul',[el('li',['item1']),el('li',['item2'])])
+])
+
+var newTree=el('div',{'id':'container'},[
+    el('h1',{style:'color:red'},['Hello LowesYang']),
+    el('p',{name:'lowesyang'},['Hello vdom']),
+    el('ul',[el('li',['item2'])])
+])
+
+var patches=diff(tree,newTree);
+var root=tree.render();
+document.querySelector('#demo').appendChild(root);
+setTimeout(()=>{
+    patches.apply(root);
+},2000)
+```
 
 ## License
 MIT

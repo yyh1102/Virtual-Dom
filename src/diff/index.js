@@ -10,8 +10,11 @@ import listDiff from 'list-diff2';
  */
 class Diff{
     constructor(oldTree,newTree,patches=new Patches()){
+        if(!patches instanceof Patches){
+            throw new Error('Invalid patches\'s type:it should be {Patches}.');
+        }
         this.patches=patches;
-        this.index=-1;
+        this.index=0;
         this.diffNode(oldTree,newTree);
     }
 
@@ -21,7 +24,6 @@ class Diff{
 
     // DFS travel
     diffNode(oldNode,newNode){
-        this.index++;
         let currPatches=[];
         let currIndex=this.index;
         // if text node
@@ -44,6 +46,7 @@ class Diff{
             }
         }
         else{   // replace item
+            this.index+=oldNode.count;
             currPatches.push({
                 type:Patches.REPLACE,
                 node:newNode
@@ -93,6 +96,7 @@ class Diff{
         // diff children
         for(let i=0,len=oldChildren.length;i<len;i++){
             if(!newChildren[i]) break;
+            this.index++;
             this.diffNode(oldChildren[i],newChildren[i]);
         }
     }

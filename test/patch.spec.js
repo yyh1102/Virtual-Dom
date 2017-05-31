@@ -145,7 +145,7 @@ describe('Test patch fucntion', function () {
         dom.innerHTML.should.be.equal(root2.render().innerHTML)
     })
 
-    it('Root reordering and replacing',function(){
+    it('Root reordering and children replacing',function(){
         let root = el('ul', {id: 'content'}, [
             el('li', {key: 'a'}, ['Item 1']),
             el('li', {key: 'b'}, ['Item 2']),
@@ -166,6 +166,24 @@ describe('Test patch fucntion', function () {
         let dom = root.render()
         let patches = diff(root, root2)
         patches.apply(dom)
+        dom.innerHTML.should.be.equal(root2.render().innerHTML)
+    })
+
+    it('Root reordering,and children adding and removing',()=>{
+        let root=el('div',{'id':'container'},[
+            el('p',{name:'lowesyang'},['Hello vdom']),
+            el('ul',[el('li',['item1']),el('li',['item2'])])
+        ])
+
+        let root2=el('div',{'id':'container'},[
+            el('h1',{style:'color:red'},['Hello LowesYang']),
+            el('p',{name:'lowesyang'},['Hello vdom']),
+            el('ul',[el('li',['item2'])])
+        ])
+
+        let dom=root.render();
+        let patches=diff(root,root2);
+        patches.apply(dom);
         dom.innerHTML.should.be.equal(root2.render().innerHTML)
     })
 

@@ -18,6 +18,17 @@ class Element{
             this.children = toArray(children);
         }
         this.key=props.key;
+
+        let count=0;
+        this.children.forEach((child)=>{
+            if(child instanceof Element){
+                count+=child.count+1;
+            }
+            else{
+                count++;
+            }
+        })
+        this.count=count;
     }
 
     render(){

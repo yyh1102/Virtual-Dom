@@ -1,6 +1,6 @@
 {
-  "name": "virtual-dom",
-  "version": "1.0.1",
+  "name": "virtual-doml",
+  "version": "1.0.2",
   "description": "A simple virtual dom solution",
   "main": "src/index.js",
   "scripts": {

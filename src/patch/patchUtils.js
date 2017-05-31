@@ -6,7 +6,9 @@ import {toArray} from '../utils';
  * @param {Element} el - new element
  */
 export function replaceNode(node,el){
-    let newNode=el.render();
+    let newNode;
+    if(typeof el === 'string') newNode=document.createTextNode(el);
+    else newNode=el.render();
     node.parentNode.replaceChild(newNode,node);
 }
 
