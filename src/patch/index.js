@@ -24,7 +24,7 @@ class Patches{
         let patches=this.patches[this.walkIndex];
         // DFS travel
         let children=toArray(node.childNodes);
-        children && children.forEach((child)=>{
+        children.forEach((child)=>{
             this.walkIndex++;
             this.apply(child);
         });
@@ -58,7 +58,6 @@ class Patches{
             }
         })
     }
-
 }
 
 Patches.REPLACE=0;

@@ -84,6 +84,7 @@ class Diff{
     diffChildren(oldNode,newNode,currPatches){
         let diff=listDiff(oldNode.children,newNode.children,'key');
         let moves=diff.moves;
+        // children nodes after diff (maybe with some old nodes in the rear)
         let newChildren=diff.children;
         if(moves.length){
             currPatches.push({

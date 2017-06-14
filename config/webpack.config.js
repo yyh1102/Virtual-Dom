@@ -7,8 +7,6 @@ module.exports={
         virtualDom:'./src/index'
     },
     output:{
-        libraryTarget:'umd',
-        library:'[name]',
         path:path.resolve(__dirname,'..','dist'),
         publicPath:'/dist/',
         filename:'[name].js',

@@ -63,8 +63,8 @@ export function setProps(node,props){
                     node.style.cssText=value;
                     break;
                 case 'value':
-                    let tagName=(node.tagName || '').toLowerCase();
-                    if(tagName==='input' || tagName==='textarea') {
+                    let tagName=node.tagName;
+                    if(tagName==='INPUT' || tagName==='TEXTAREA') {
                         node.value = value;
                     }
                     else{
